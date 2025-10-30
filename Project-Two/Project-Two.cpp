@@ -1,7 +1,17 @@
 #include <iostream>
 #include <cstdlib>
 
+// Libraries For Create Specific Delay In The Plase That You Call It.
+#include <chrono>
+#include <thread>
+
+// Using Namespaces For Make Code Write Easier.
 using namespace std;
+using namespace std::this_thread;     // sleep_for, sleep_until.
+using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
+using std::chrono::system_clock;
+
+// My Created Functions From Scratch.
 
 enum enType {SamallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4};
 
@@ -212,11 +222,22 @@ void Statistics(int& NumberOfQuestions, enQuestionsLevelType questionsLevel, enO
 {
 	cout << "----------------------------------------" << endl;
 	if (NumberOfRightQuestions > NumberOfFalseQuestions)
-		cout << "Final Reslut Is [ ++ PASS!!! ++ ]" << endl;
+	{
+		system("color 27");
+		cout << "Final Reslut Is [ ++ PASS!!! ++ ]" << endl;\
+
+	}
 	else if (NumberOfRightQuestions < NumberOfFalseQuestions)
+	{
+		cout << "\a";
+		system("color 47");
 		cout << "Final Reslut Is [ ++ FAIL :( ++ ]" << endl;
+	}
 	else
+	{
+		system("color 67");
 		cout << "Final Reslut Is [ ++ DRAW ++ ]" << endl;
+	}
 	cout << "----------------------------------------" << endl;
 	cout << "Number Of Questions: " << NumberOfQuestions << endl;
 	cout << "Questions Level    : " << GetLevelType(questionsLevel) << endl;
@@ -267,6 +288,12 @@ void PlayMathGame()
 
 		Counter++;
 	} while (Counter < QuesiontsNumber);
+	
+	sleep_for(2s);
+    sleep_until(system_clock::now() + 1s);
+	cout << "\nWhait For Final Result........." << endl;
+	sleep_for(4s);
+    sleep_until(system_clock::now() + 1s);
 	Statistics(QuesiontsNumber, QuestionLeve(QuestionLevelNum), enOpType, NumberOfRightQuestions, NumberOfFalseQuestions);
 }
 
@@ -298,11 +325,16 @@ void StartMathGame()
 	ResetTheGame();
 }
 
+// End Of My Functions.
+
+
+// Main Function From C++ Language That Program Start From It.
 int main()
 {
 	// Seed the random number generator with the current time.
 	srand((unsigned)time(NULL));
 
+	// Call The Program To Start.
 	StartMathGame();
 	
 	return 0;
