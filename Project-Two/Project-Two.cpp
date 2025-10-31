@@ -218,9 +218,8 @@ float ClaculateNumbers(float Number1, float Number2, int OpType)
 	}
 }
 
-void Statistics(int& NumberOfQuestions, enQuestionsLevelType questionsLevel, enOpType OpType, int& NumberOfRightQuestions, int& NumberOfFalseQuestions)
+void CheckFinalReslut(int NumberOfRightQuestions, int NumberOfFalseQuestions)
 {
-	cout << "----------------------------------------" << endl;
 	if (NumberOfRightQuestions > NumberOfFalseQuestions)
 	{
 		system("color 27");
@@ -238,6 +237,12 @@ void Statistics(int& NumberOfQuestions, enQuestionsLevelType questionsLevel, enO
 		system("color 67");
 		cout << "Final Reslut Is [ ++ DRAW ++ ]" << endl;
 	}
+}
+
+void Statistics(int& NumberOfQuestions, enQuestionsLevelType questionsLevel, enOpType OpType, int& NumberOfRightQuestions, int& NumberOfFalseQuestions)
+{
+	cout << "----------------------------------------" << endl;
+	CheckFinalReslut(NumberOfRightQuestions, NumberOfFalseQuestions);
 	cout << "----------------------------------------" << endl;
 	cout << "Number Of Questions: " << NumberOfQuestions << endl;
 	cout << "Questions Level    : " << GetLevelType(questionsLevel) << endl;
@@ -289,10 +294,10 @@ void PlayMathGame()
 		Counter++;
 	} while (Counter < QuesiontsNumber);
 	
-	sleep_for(2s);
+	sleep_for(1s);
     sleep_until(system_clock::now() + 1s);
 	cout << "\nWhait For Final Result........." << endl;
-	sleep_for(4s);
+	sleep_for(3s);
     sleep_until(system_clock::now() + 1s);
 	Statistics(QuesiontsNumber, QuestionLeve(QuestionLevelNum), enOpType, NumberOfRightQuestions, NumberOfFalseQuestions);
 }
