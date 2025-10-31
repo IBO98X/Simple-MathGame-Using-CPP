@@ -209,7 +209,7 @@ char GenerateOpType(enOpType Op)
 	}
 }
 
-float ClaculateNumbers(float Number1, float Number2, int OpType)
+float ClaculateNumbers(float Number1, float Number2, char OpType)
 {
 	switch(OpType)
 	{
