@@ -66,13 +66,23 @@ int QuestionsNumber()
 
 int QuestionLevelNumber()
 {
-	int QuestionLevelNumber = ReadPositiveNumber("Now Enter Question Level [1] Easy, [2] Medium, [3] Hard, [4] Mix : ");
+
+	int QuestionLevelNumber = 0;
+	do
+	{
+		QuestionLevelNumber = ReadPositiveNumber("Now Enter Question Level [1] Easy, [2] Medium, [3] Hard, [4] Mix : ");
+	} while (QuestionLevelNumber < 0 || QuestionLevelNumber > 4);
 	return QuestionLevelNumber;
 }
 
 int OperationNumber()
 {
-	int OperationNumber = ReadPositiveNumber("Now Enter Operation Type [1] Add, [2] Sub [3] Mul [4] Div [5] Mix : ");
+	int OperationNumber = 0;
+	do
+	{
+		OperationNumber = ReadPositiveNumber("Now Enter Operation Type [1] Add, [2] Sub [3] Mul [4] Div [5] Mix : ");
+	
+	} while (OperationNumber < 0 || OperationNumber > 5);
 	return OperationNumber;
 }
 
