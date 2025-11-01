@@ -306,7 +306,7 @@ void PlayMathGame()
 	
 	sleep_for(1s);
     sleep_until(system_clock::now() + 1s);
-	cout << "\nWhait For Final Result........." << endl;
+	cout << "\nWait For Final Result........." << endl;
 	sleep_for(3s);
     sleep_until(system_clock::now() + 1s);
 	Statistics(QuesiontsNumber, QuestionLeve(QuestionLevelNum), enOpType, NumberOfRightQuestions, NumberOfFalseQuestions);
